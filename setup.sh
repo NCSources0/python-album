@@ -14,9 +14,12 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 
 echo "Installing dependencies..."
+sudo apt-get autoremove -y
 sudo apt-get install python3 -y
 sudo apt-get install python3-pip -y
 pip install flask
+sudo apt-get install hostapd -y
+sudo apt-get install dnsmasq -y
 
 # Create Flask app directory if it doesn't exist
 if [ ! -d "$FLASK_DIR" ]; then
