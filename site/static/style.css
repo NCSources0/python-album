@@ -1,0 +1,77 @@
+@import url(fonts/style.css);
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -224px;
+  width: 224px;
+  padding-right: 32px;
+  height: 100vh;
+  background: var(--g);
+  border-right: 1px solid var(--f);
+}
+
+.sidebar .quickSettings {
+  width: 32px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.sidebar .quickSettings * {
+  margin-bottom: 4px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: inherit;
+  border: 1px solid var(--f);
+  font-size: 16px;
+  width: 32px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  cursor: pointer;
+  color: var(--a);
+}
+
+button:hover {
+  background: var(--f);
+
+}
+
+.album {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100vw - 40px);
+  height: 100vh;
+  margin: 4px;
+}
+
+.carousel {
+  background: var(--h);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  background: var(--f);
+  overflow-x: scroll;
+  white-space: nowrap;
+  z-index: -100;
+  display: flex;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel img {
+  background: var(--h);
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  scroll-snap-align: start;
+}

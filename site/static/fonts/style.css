@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('NotoSans-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('Nunito-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('Roboto-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url(icons.woff2) format('woff2');
+}
+
+body {
+  --font: 'Nunito';
+  --italic-font: 'Nunito Italic';
+  --a: #111;
+  --b: #333;
+  --c: #555;
+  --d: #777;
+  --e: #999;
+  --f: #bbb;
+  --g: #ddd;
+  --h: #fff;
+  --at: #1110;
+  --bt: #3330;
+  --ct: #5550;
+  --dt: #7770;
+  --et: #9990;
+  --ft: #bbb0;
+  --gt: #ddd0;
+  --ht: #fff0;
+  background: var(--h);
+  color: var(--a);
+}
+
+* {
+  font-family: var(--font), sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.icon {
+  font-family: 'Material Symbols Outlined';
+  font-size: 24px;
+}
