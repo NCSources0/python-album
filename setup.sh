@@ -43,24 +43,10 @@ sudo cp "$REPO_DIR/dnsmasq.conf" "$DNSMASQ_CONF"
 echo "Moving Flask app service file..."
 sudo cp "$REPO_DIR/flaskapp.service" "$FLASK_SERVICE"
 
-# Move the wifi_check service file
-echo "Moving Wi-Fi check service file..."
-sudo cp "$REPO_DIR/wifi_check.service" "$WIFI_CHECK_SERVICE"
-
-# Move the wifi_check script to /home/pi/
-echo "Moving Wi-Fi check script..."
-sudo cp "$REPO_DIR/wifi_check.sh" "$WIFI_CHECK_SCRIPT"
-sudo chmod +x "$WIFI_CHECK_SCRIPT"
-
 # Enable flaskapp service
 echo "Enabling Flask app service..."
 sudo systemctl enable flaskapp.service
 sudo systemctl start flaskapp.service
-
-# Enable wifi_check service
-echo "Enabling Wi-Fi check service..."
-sudo systemctl enable wifi_check.service
-sudo systemctl start wifi_check.service
 
 # Enable and start the hostapd and dnsmasq services
 echo "Starting hostapd and dnsmasq..."
