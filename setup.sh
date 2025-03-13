@@ -9,17 +9,39 @@ FLASK_SERVICE="/etc/systemd/system/flaskapp.service"
 WIFI_CHECK_SERVICE="/etc/systemd/system/wifi_check.service"
 WIFI_CHECK_SCRIPT="/home/pi/wifi_check.sh"
 
+clear
+
 echo "Updating..."
 sudo apt-get update -y
-sudo apt-get upgrade -y
+clear
 
-echo "Installing dependencies..."
+echo "Upgrading..."
+sudo apt-get upgrade -y
+clear
+
+echo "Removing unneeded dependencies..."
 sudo apt-get autoremove -y
+clear
+
+echo "Installing Python..."
 sudo apt-get install python3 -y
+clear
+
+echo "Installing pip..."
 sudo apt-get install python3-pip -y
+clear
+
+echo "Installing Flask from Python..."
 pip install flask
+clear
+
+echo "Installing Hostapd..."
 sudo apt-get install hostapd -y
+clear
+
+echo "Installing dnsmasq..."
 sudo apt-get install dnsmasq -y
+clear
 
 # Create Flask app directory if it doesn't exist
 if [ ! -d "$FLASK_DIR" ]; then
@@ -43,18 +65,23 @@ sudo cp "$REPO_DIR/dnsmasq.conf" "$DNSMASQ_CONF"
 echo "Moving Flask app service file..."
 sudo cp "$REPO_DIR/flaskapp.service" "$FLASK_SERVICE"
 
-# Enable flaskapp service
 echo "Enabling Flask app service..."
 sudo systemctl enable flaskapp.service
+echo "Starting Flask app service..."
 sudo systemctl start flaskapp.service
+clear
 
-# Enable and start the hostapd and dnsmasq services
-echo "Starting hostapd and dnsmasq..."
+echo "Enabling Hostapd..."
 sudo systemctl enable hostapd
-sudo systemctl enable dnsmasq
+echo "Starting Hostapd..."
 sudo systemctl start hostapd
-sudo systemctl start dnsmasq
+clear
 
-# Reboot the system to apply all settings
-echo "Setup complete! Rebooting now..."
+echo "Enabling dnsmasq..."
+sudo systemctl enable dnsmasq
+echo "Starting dnsmasq..."
+sudo systemctl start dnsmasq
+clear
+
+echo "Setup complete! Rebooting..."
 sudo reboot
