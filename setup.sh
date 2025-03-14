@@ -14,7 +14,7 @@ sudo apt-get upgrade -y
 clear
 
 echo "Installing dependencies..."
-sudo apt-get install python3 python3-pip hostapd dnsmasq -y
+sudo apt-get install python3 python3-pip hostapd dnsmasq cron -y
 pip install flask
 clear
 
@@ -51,6 +51,13 @@ clear
 echo "Starting dnsamsq..."
 sudo systemctl enable dnsmasq
 sudo systemctl start dnsmasq
+clear
+
+echo "Enabling automatic updates..."
+CRON_JOB="0 2 * * 0 cd $REPO_DIR && git pull origin main"
+(crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
+sudo systemctl enable cron
+sudo systemctl start cron
 clear
 
 echo "Setup complete! Rebooting now..."
