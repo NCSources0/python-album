@@ -1,12 +1,14 @@
 [Unit]
-Description=Flask Application for albumeer.local
+Description=Flask App for Albumeer
 After=network.target
 
 [Service]
-User=pi
-WorkingDirectory=/app/site
 ExecStart=/usr/bin/python3 /app/site/app.py
+WorkingDirectory=/app/site
+StandardOutput=inherit
+StandardError=inherit
 Restart=always
+User=pi
 
 [Install]
 WantedBy=multi-user.target
