@@ -1,5 +1,11 @@
 Setup: 
 ```bash
+# Update
+sudo apt update
+
+# Install Git
+sudo apt install git
+
 # Clone the repo
 git clone http://github.com/NCSources0/rpi-album-server
 
